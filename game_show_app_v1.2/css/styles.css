@@ -1,5 +1,5 @@
 /* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 /* Variables */
 
@@ -12,6 +12,7 @@
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
+  --font-size-med-large: 40px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
 }
@@ -37,8 +38,16 @@ li, ol, ul {
 h2 {
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Russo One', sans-serif;
   font-size: var(--font-size-large);
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'Russo One', sans-serif;
+  font-size: var(--font-size-med-large);
   margin: 0;
 }
 
