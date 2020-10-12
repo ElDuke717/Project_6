@@ -5,58 +5,95 @@ const startScreen = document.querySelector(".start");
 const missed = 0;
 
 const phrases = [
-    "Coronavirus Pandemic",
-    "Presidential Election",
-    "West Coast Wildfires",
-    "US Based Crewed Spaceflight",
-    "Phosphine on Venus",
-    "RIP Eddie Van Halen",
-    "Social Distancing",
-    "What a mess"
+    "coronavirus pandemic",
+    "presidential election",
+    "west coast wildfires",
+    "us based crewed spaceflight",
+    "phosphine on venus",
+    "rip eddie van halen",
+    "social distancing",
+    "what a mess"
 ];
 
 
-//return a random phrase from an array
+//This returns a random phrase from the phrases array, then makes an array from
+//the phrases' letters. 
 const getRandomPhraseAsArray = arr => {
     let rand = (Math.floor(Math.random(phrases.length)*phrases.length));
-    return phrases[rand];
+    return phrases[rand].split('');
 }
-
+//This confirms that it works:
 //console.log(getRandomPhraseAsArray());
 
 
 
-//adds the letters of a string to the display
+//Adds the letters from the getRandomPhraseAsArray funtion and adds them to an 
+//unordered list, each letter a list item with the class ".letter" or ".space"
 const addPhraseToDisplay = arr => {
-    const text = getRandomPhraseAsArray();
-    const ul = document.getElementById('phrase');
-    const li = document.createElement('li');
-    li.textContent = text.split('');
-    ul.appendChild(li);
-    li.classList.add("liphrase");
-    // let checkli = document.querySelector('.liphrase').textContent;
-    // let split = checkli.split("");
-    // checkli = split;
-    
+    const letterArray = getRandomPhraseAsArray();
+    const listElement = document.querySelector('#phrase ul');
+    const numberOfListItems = letterArray.length;
+//this loop goes through and adds a list item with a letter for each letter from
+//the random phrase.    
+    for (let i = 0; i < numberOfListItems; i++) {
+        let listItem = document.createElement('li');
+        listItem.textContent = letterArray [i];
+        phrase.appendChild(listItem);
+//This if statement tests whether the character is a letter or space, then adds it
+//as a classname.      
+        if(listItem.textContent !== ' ') {
+            listItem.className = 'letter';
+        } else {
+            listItem.className = 'space';
+        }
+    } 
 }
-
-//Add the phrase to the page.
+//Adds the phrase to the page with the letters separated.
 addPhraseToDisplay();
-console.log(addPhraseToDisplay());
 
 
 //check if a letter is in the phrase
 const checkLetter = button => {
-    let checkli = document.querySelector('.liphrase').textContent;
-    let match;
-    //for (let i < 0; li.length; i++)
+    let letterLi = document.querySelectorAll('.letter');
+    let match = null;
+    for (let i = 0; i < letterLi.length; i++) {
+        let letters = letterLi[i];
+        let letterMatch = letters.textContent;
+    
+    let keyButtons = document.getElementsByTagName('BUTTON');
+    for (let i = 0; i < keyButtons.length; i++) {
+        let  buttons = keyButtons[i];
+        let buttonMatch = buttons.textContent;
+    
+        if (letterMatch === buttonMatch) {
+            letterLi.className = 'show';
+            match = letterMatch;
+        }
+    }
 }
 
-//Testing to see if text can be pulled from list item that was created.
-// let checkli = document.querySelector('.liphrase').textContent;
-// console.log(checkli);
-// let split = checkli.split("");
-// console.log(split);
+}
+
+
+checkLetter();
+
+//test to see if letters are pulle out of phrase
+let letterLi = document.querySelectorAll('.letter');
+     for (let i = 0; i < letterLi.length; i++) {
+        let letters = letterLi[i];
+        let letterMatch = letters.textContent;
+        console.log(letterMatch);
+    }
+//test to see if letters are pulled from the buttons. 
+let keyButtons = document.getElementsByTagName('BUTTON');
+    for (let i = 0; i < keyButtons.length; i++) {
+        let  buttons = keyButtons[i];
+        let buttonMatch = buttons.textContent;
+        console.log(buttonMatch);
+    }
+
+
+
 
 //check if the game has been won or lost
 const checkWin = () => {

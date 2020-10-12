@@ -19,3 +19,8 @@ random number each time that is > 0 and <=5.
 //     }
 // }
 
+//Here's the for loop that we need to use to add the characters from the phrase to the page:
+let text = getRandomPhraseAsArray();
+for (var i = 0; i < text.length; i++) {
+    console.log(text.charAt(i));
+}

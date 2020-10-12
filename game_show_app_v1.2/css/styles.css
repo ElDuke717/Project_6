@@ -11,6 +11,7 @@
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
+  --color-start-btn: rgb(255, 123, 0);
   --font-size-large: 60px;
   --font-size-med-large: 40px;
   --font-size-medium: 20px;
@@ -92,7 +93,7 @@ button {
   width: 65px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
-  color: transparent;
+  color:  transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
 }
@@ -126,6 +127,8 @@ button {
   background: #FFFFFF;
   border-radius: 5px;
   font-size: var(--font-size-medium);
+  font-family: 'Russo One', sans-serif;
+  color: var(--color-start-btn);
 }
 
 /* Overlay */
