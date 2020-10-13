@@ -24,3 +24,23 @@ let text = getRandomPhraseAsArray();
 for (var i = 0; i < text.length; i++) {
     console.log(text.charAt(i));
 }
+
+
+const chosen = () => {
+    let letterLi = document.querySelectorAll('.chosen');
+        for (let i = 0; i < letterLi.length; i++) {
+            let letters = letterLi[i];
+            let letterMatch = letters.textContent;
+            console.log(letterMatch);
+        }
+    }
+    
+    chosen();
+
+    
+let keyButtons = document.getElementsByTagName('BUTTON');
+for (let i = 0; i < keyButtons.length; i++) {
+    let buttons = keyButtons[i];
+    let buttonLetter = buttons.textContent;
+    console.log(buttonLetter);
+}

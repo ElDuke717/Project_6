@@ -56,59 +56,63 @@ addPhraseToDisplay();
 const checkLetter = button => {
     let letterLi = document.querySelectorAll('.letter');
     let match = null;
+    //Adding this line in to add buttons variable
+
     for (let i = 0; i < letterLi.length; i++) {
         let letters = letterLi[i];
         let letterMatch = letters.textContent;
+        console.log(letterMatch);
+        match=true;
+        console.log(match);
+  
     
-    let keyButtons = document.getElementsByTagName('BUTTON');
-    for (let i = 0; i < keyButtons.length; i++) {
-        let  buttons = keyButtons[i];
-        let buttonMatch = buttons.textContent;
-    
-        if (letterMatch === buttonMatch) {
-            letterLi.className = 'show';
-            match = letterMatch;
-        }
+        
+        // if (letterMatch === buttons)  {
+        //     letters.classList.add('show');
+            
+            
+        // }
     }
 }
 
-}
 
 
 checkLetter();
 
-//test to see if letters are pulle out of phrase
-let letterLi = document.querySelectorAll('.letter');
-     for (let i = 0; i < letterLi.length; i++) {
-        let letters = letterLi[i];
-        let letterMatch = letters.textContent;
-        console.log(letterMatch);
-    }
-//test to see if letters are pulled from the buttons. 
-let keyButtons = document.getElementsByTagName('BUTTON');
-    for (let i = 0; i < keyButtons.length; i++) {
-        let  buttons = keyButtons[i];
-        let buttonMatch = buttons.textContent;
-        console.log(buttonMatch);
-    }
-
-
 
 
 //check if the game has been won or lost
-const checkWin = () => {
+// const checkWin = () => {
 
-}
+// }
 
 //listen for the start game button to be pressed
 // startButton.addEventListener('click', () => {
 
 // });
 
-//listen for the onscreen keyboard to be clicked
+//listen for the onscreen keyboard to be clicked - this works.
 qwerty.addEventListener('click', e => {
+    if (event.target.tagName === 'BUTTON') {
+        event.target.classList.add('chosen');
+    }
+
+    if(document.querySelector('.chosen')) {
+
+    }
+    //This will give all the letters from the keyboard, logged to the console sequentially.
+    let keyButtons = document.getElementsByTagName('BUTTON');
+    for (let i = 0; i < keyButtons.length; i++) {
+        let buttons = keyButtons[i];
+        let buttonLetter = buttons.textContent;
+        console.log(buttonLetter);
+    }
+    
+    //checkLetter(document.querySelector('.chosen'));
 
 });
+
+
 
 btnReset.addEventListener('click', () => {
     startScreen.style.display = "none";
