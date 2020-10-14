@@ -61,25 +61,13 @@ const checkLetter = button => {
     for (let i = 0; i < letterLi.length; i++) {
         let letters = letterLi[i];
         let letterMatch = letters.textContent;
-        console.log(letterMatch);
-        match=true;
-        console.log(match);
-  
-    
-        
-        // if (letterMatch === buttons)  {
-        //     letters.classList.add('show');
-            
-            
-        // }
+        if (button === letterMatch) {
+            letters.classList.add('show');
+            match = true;
+        }  
     }
-}
-
-
-
-checkLetter();
-
-
+    return match;
+};
 
 //check if the game has been won or lost
 // const checkWin = () => {
@@ -93,20 +81,16 @@ checkLetter();
 
 //listen for the onscreen keyboard to be clicked - this works.
 qwerty.addEventListener('click', e => {
-    if (event.target.tagName === 'BUTTON') {
-        event.target.classList.add('chosen');
+    if (e.target.tagName === 'BUTTON') {
+        e.target.classList.add('chosen');
+        let match = checkLetter(e.target.textContent);
+        console.log(match);
     }
 
-    if(document.querySelector('.chosen')) {
+    // if(document.querySelector('.chosen')) {
 
-    }
-    //This will give all the letters from the keyboard, logged to the console sequentially.
-    let keyButtons = document.getElementsByTagName('BUTTON');
-    for (let i = 0; i < keyButtons.length; i++) {
-        let buttons = keyButtons[i];
-        let buttonLetter = buttons.textContent;
-        console.log(buttonLetter);
-    }
+    // }
+    
     
     //checkLetter(document.querySelector('.chosen'));
 
@@ -119,4 +103,10 @@ btnReset.addEventListener('click', () => {
 });
 
 
+// let keyButtons = document.getElementsByTagName('BUTTON');
+// for (let i = 0; i < keyButtons.length; i++) {
+//     let buttons = keyButtons[i];
+//     let buttonLetter = buttons.textContent;
+//     console.log(buttonLetter);
 
+// }
