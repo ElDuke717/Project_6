@@ -75,14 +75,10 @@ const checkLetter = button => {
 };
 
 
-//listen for the start game button to be pressed
-// startButton.addEventListener('click', () => {
-
-// });
-
 //listen for the onscreen keyboard to be clicked and show a letter when chosen
 qwerty.addEventListener('click', e => {
     if (e.target.tagName === 'BUTTON') {
+        e.target.disabled = true;
         e.target.classList.add('chosen');
         let match = checkLetter(e.target.textContent);
         console.log(match);
@@ -91,9 +87,11 @@ qwerty.addEventListener('click', e => {
             missed++ ;
             let hearts = document.querySelectorAll('img');
             hearts[missed - 1].src = 'images/lostHeart.png';
+            
     }
   }
   checkWin();
+  
 });
 
 
